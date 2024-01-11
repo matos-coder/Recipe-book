@@ -8,24 +8,26 @@ import { Subscription } from 'rxjs';
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css']
 })
-export class RecipesComponent implements OnInit, OnDestroy{
+export class RecipesComponent implements OnInit{
   selectedRecipe:Recipe;
   subscription: Subscription;
 
-  constructor(private recipeService: RecipeService){
+  constructor(
+    //private recipeService: RecipeService
+    ){
 
   }
   ngOnInit(){
-    this.recipeService.recipeSelected
-      .subscribe(
-        (recipe: Recipe) => {
-          this.selectedRecipe= recipe;
-        }
-      )
+    // this.recipeService.recipeSelected
+    //   .subscribe(
+    //     (recipe: Recipe) => {
+    //       this.selectedRecipe= recipe;
+    //     }
+    //   )
   }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.subscription.unsubscribe();
+  // }
 
 
 }
